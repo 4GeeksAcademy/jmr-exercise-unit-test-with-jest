@@ -1,41 +1,40 @@
+// One euro is:
+let oneEuroIs = {
+    "JPY": 156.5, // japan yen
+    "USD": 1.07, // us dollar
+    "GBP": 0.87, // british pound
+}
 // Declaramos una función con el nombre exacto "fromEuroToDollar"
 const fromEuroToDollar = function(valueInEuro) {
     // Convertimos el valor a dólares
-    let valueInDollar = valueInEuro * 1.07;
-    // Retornamos el valor en dólares
+    let valueInDollar = valueInEuro * oneEuroIs.USD;
     return valueInDollar;
-}
+};
 
- // Declaramos una función con el nombre exacto"fromDollarToyen"
+// Declaramos una función con el nombre exacto "fromDollarToYen"
 const fromDollarToYen = function(valueInDollar) {
     // Convertimos el valor dólares a euros
-    let valueInEuro = valueInDollar / 1.07;
+    let valueInEuro = valueInDollar / oneEuroIs.USD;
     // Convertimos euros a yen
-    let valueInYen = valueInEuro * 156.5;
-    // Retornamos el valor en yen
+    let valueInYen = valueInEuro * oneEuroIs.JPY;
     return valueInYen;
 };
 
-// Declaramos una función con el nombre exacto "fromyenToPound"
+// Declaramos una función con el nombre exacto "fromYenToPound"
 const fromYenToPound = function(valueInYen) {
     // Convertimos yenes a euros
-    let valueInEuro = valueInYen / 156.5;
+    let valueInEuro = valueInYen / oneEuroIs.JPY;
     // Convertimos euros a libras
-    let valueInPound = valueInEuro * 0.87;
-    // Retornamos el valor en libras
+    let valueInPound = valueInEuro * oneEuroIs.GBP;
     return valueInPound;
 };
 
-// Exporta la función para usarla en otros archivos
-// (similar a la palabra clave "export" cuando se usa webpack)
-module.exports = { fromEuroToDollar, fromDollarToYen, fromYenToPound };
+// Definimos la función sum, que se estaba usando pero no existía
+const sum = function(a, b) {
+    return a + b;
+};
 
-// Solo un registro en consola para nosotros
-console.log(sum(7,3))
+// Exportamos todas las funciones en un solo module.exports
+module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYenToPound };
 
-// Exporta la función para usarla en otros archivos 
-// (similar a la palabra clave "export" cuando se usa webpack)
-module.exports = { sum };
 
-// Tenemos que incluir la función en el exports para que sea exportada a otros archivos como test.js
-module.exports = { sum, fromEuroToDollar }
